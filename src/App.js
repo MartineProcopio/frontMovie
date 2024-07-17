@@ -14,24 +14,28 @@ const URL = `http://gateway.marvel.com/v1/public/series?ts=${ts}&apikey=${apikey
 function App() {
   
   const [movies, setMovies] = useState();
+  const [images, setImages] = useState();
 
-  const getMovies = async () =>{
+  const getMovies = () =>{
     
-    try
-    {
+    
 
-      const response = await fetch(URL).then(response=>response.json());
-      setMovies(response.data.results);
-      console.log(response.data.results);
+      fetch(URL)
+      .then(response=>response.json())
+      .then((json)=>{
+          console.log(json)
+          const response = json.data.results;
+          setMovies(response);
+          
+      })
+      //
+      //setImages(response.data.results)
+      
 
-    } 
-    catch(err)
-    {
-      console.log(err);
-    }
+   
   }
 
-
+  console.log(movies);
 
   useEffect(() => {
     getMovies();
@@ -43,7 +47,7 @@ function App() {
 
     <Routes>
       <Route path='/' element={<Layout/>}>
-      <Route path='/' element={<Home/>}></Route>
+      <Route path='/' element={<Home movies={movies}/>}></Route>
       </Route>
     </Routes>
       
