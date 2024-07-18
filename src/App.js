@@ -4,6 +4,8 @@ import {useState,useEffect} from 'react';
 import Layout from './components/Layout';
 import { Route,Routes } from 'react-router-dom';
 import Home from './components/home/Home';
+import Header from './components/Header/Header'
+
 
 const apikey = '05a204294453d9d18689f24088233147';
 const ts = '29/07/2022, 13:52:07';
@@ -44,7 +46,7 @@ function App() {
 
   return (
     <div className="App">
-
+    <Header/>
     <Routes>
       <Route path='/' element={<Layout/>}>
       <Route path='/' element={<Home movies={movies}/>}></Route>
