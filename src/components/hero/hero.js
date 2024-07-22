@@ -8,10 +8,12 @@ import Button from 'react-bootstrap/Button';
 
 const Hero = ({movies}) => {
   return (
+    
     <div className ='movie-carousel-container'>
         <Carousel>
             {
                 movies?.map((movie)=>{
+
                     return(
                         <Paper>
                              <div className = 'movie-card-container'>
@@ -42,7 +44,9 @@ const Hero = ({movies}) => {
             }
         </Carousel>
     </div>
+
   )
+ 
 }
 
 export default Hero

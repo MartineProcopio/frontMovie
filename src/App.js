@@ -16,7 +16,7 @@ const URL = `http://gateway.marvel.com/v1/public/series?ts=${ts}&apikey=${apikey
 function App() {
   
   const [movies, setMovies] = useState();
-  const [images, setImages] = useState();
+
 
   const getMovies = () =>{
     
